@@ -1,17 +1,30 @@
 def get_student_score() -> float:
+    """
+    Handles user input to obtain the student's score.
+    Ensures the input is a valid numerical value.
+    Returns:
+        float: The student's score.
+    """
     while True:
         try:
             score = float(input("Enter your score: "))
             if 0 <= score <= 100:
-                print("Valid score entered.")  # Confirmation message
                 return score
             else:
-                print("Error: Please enter a valid score between 0 and 100.")
+                print("Please enter a score between 0 and 100.")
         except ValueError:
-            print("Error: Invalid input. Please enter a numeric value.")
+            print("Invalid input. Please enter a numeric value.")
 
 def calculate_grade(score: float) -> str:
+    """
+    Determines the letter grade based on the given score.
     
+    Args:
+        score (float): The student's numerical score.
+    
+    Returns:
+        str: The corresponding letter grade.
+    """
     if score >= 90:
         return 'A'
     elif score >= 80:
@@ -23,8 +36,8 @@ def calculate_grade(score: float) -> str:
     else:
         return 'F'
 
-def main() -> None:
-    
+def main():
+    """Main function to execute the grade calculation process."""
     score = get_student_score()
     grade = calculate_grade(score)
     print(f"Your Grade is: {grade}")
